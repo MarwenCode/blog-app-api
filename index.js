@@ -8,7 +8,9 @@ import postRoute from "./routes/posts.js";
 import multer from "multer";
 import path from "path";
 import { fileURLToPath } from "url";
-require("dotenv").config()
+
+
+// require("dotenv").config()
 
 const __filename = fileURLToPath(import.meta.url);
 
@@ -49,7 +51,11 @@ app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 app.use("/api/post", postRoute);
 
-app.listen(process.env.PORT || 8000, () => {
+const PORT = process.env.PORT || 8000;
+
+app.listen(PORT, () => {
   connect();
   console.log("connected to backend");
-});
+}); 
+
+
