@@ -55,7 +55,7 @@ app.get("/", (req, res) => {
   res.send('hello to Blog-app API')
 })
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
   connect();
