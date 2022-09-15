@@ -51,6 +51,10 @@ app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 app.use("/api/post", postRoute);
 
+app.get("/", (req, res) => {
+  res.send('hello to Blog-app API')
+})
+
 const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => {
