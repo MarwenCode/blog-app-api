@@ -57,7 +57,7 @@ app.get("/", (req, res) => {
 
 const PORT = process.env.PORT || 8000;
 
-app.listen("https://blog-app-frontend.onrender.com", () => {
+app.listen(PORT, () => {
   connect();
   console.log("connected to backend");
 }); 
