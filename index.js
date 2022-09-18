@@ -8,6 +8,7 @@ import postRoute from "./routes/posts.js";
 import multer from "multer";
 import path from "path";
 import { fileURLToPath } from "url";
+const cors = require ("cors")
 
 
 // require("dotenv").config()
@@ -50,12 +51,13 @@ app.use(express.json());
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 app.use("/api/post", postRoute);
+app.use(cors())
 
 app.get("/", (req, res) => {
   res.send('hello to Blog-app API')
 })
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
   connect();
