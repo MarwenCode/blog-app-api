@@ -51,7 +51,9 @@ app.use(express.json());
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 app.use("/api/post", postRoute);
-app.use(cors())
+app.use(cors({
+  origin:"https://blog-app-frontend.onrender.com"
+}))
 
 app.get("/", (req, res) => {
   res.send('hello to Blog-app API')
