@@ -8,6 +8,7 @@ import postRoute from "./routes/posts.js";
 import multer from "multer";
 import path from "path";
 import { fileURLToPath } from "url";
+import cors from "cors"
 
 
 // require("dotenv").config()
