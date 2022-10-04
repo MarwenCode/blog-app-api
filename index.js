@@ -8,7 +8,6 @@ import postRoute from "./routes/posts.js";
 import multer from "multer";
 import path from "path";
 import { fileURLToPath } from "url";
-import cors from "cors"
 
 
 // require("dotenv").config()
@@ -51,31 +50,8 @@ app.use(express.json());
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 app.use("/api/post", postRoute);
-app.use(cors({
-  origin:"*"
-}))
 
-// Add Access Control Allow Origin headers
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
-
-app.use(express.static(path.join(__dirname, "/client/build")));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
-});
-
-app.get("/", (req, res) => {
-  res.send('hello to Blog-app API')
-})
-
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => {
   connect();
